@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Urls</h1>
+
+<table border="1" style="width:100%">
+  <thead>
+    <tr>
+      <th>Url address</th>
+      <th>Shorten url</th>
+      <th>Counter</th>
+      <th colspan="20"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @urls.each do |url| %>
+      <tr>
+        <td><%= url.url_address %></td>
+        <td><a href='<%= url.shorten_url %>'><%= url.shorten_url %></a></td>
+        <td><%= url.counter %></td>
+        <td><%= link_to 'Show', url %></td>
+        <td><%= link_to 'Edit', edit_url_path(url) %></td>
+        <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Url', new_url_path %>
+
+<!-- <a href= "<%= @shorten_url %>">http://localhost:9393<%= @shorten_url %></a> -->
